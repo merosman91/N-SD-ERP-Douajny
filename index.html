@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام إدارة الدواجن | Poultry ERP</title>
+    <meta name="theme-color" content="#0f766e">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/styles/main.css">
+    <link rel="stylesheet" href="src/styles/components.css">
+    <link rel="stylesheet" href="src/styles/responsive.css">
+    <link rel="stylesheet" href="src/styles/themes.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div id="splashScreen" class="splash-screen">
+        <i class="fas fa-feather-pointed"></i>
+        <h1>نظام دواجني</h1>
+        <p>Poultry ERP Master</p>
+    </div>
+
+    <!-- Login Screen -->
+    <div id="loginScreen" class="screen login-screen hidden">
+        <div class="login-container">
+            <!-- Login Content -->
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="appContainer" class="hidden">
+        <!-- Header -->
+        <header id="appHeader"></header>
+        
+        <!-- Main Content -->
+        <main id="mainContent" class="main-content"></main>
+        
+        <!-- Navigation -->
+        <nav id="mainNav" class="bottom-nav"></nav>
+        
+        <!-- Back Button -->
+        <button id="backBtn" class="back-btn hidden">
+            <i class="fas fa-arrow-right"></i>
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>
