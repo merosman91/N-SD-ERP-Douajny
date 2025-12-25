@@ -443,3 +443,30 @@ export { db };
 export async function initializeDB() {
     return db.initialize();
 }
+// الخطأ: Missing function implementations
+// التصحيح: إضافة الدوال الناقصة:
+
+// إضافة هذه الدالة في نهاية الكلاس
+async getInventorySummary() {
+    const items = await this.getAll('inventory');
+    
+    const totalValue = items.reduce((sum, item) => 
+        sum + (item.qty * (item.price || 0)), 0);
+    
+    const lowStock = items.filter(item => item.qty <= item.minStock).length;
+    
+    const expiringSoon = items.filter(item => {
+        if (!item.expiryDate) return false;
+        const expiry = new Date(item.expiryDate);
+        const thirtyDaysFromNow = new Date();
+        thirtyDaysFromNow.setDate(thirtyDaysFromNow.getDate() + 30);
+        return expiry <= thirtyDaysFromNow;
+    }).length;
+    
+    return {
+        totalItems: items.length,
+        totalValue: totalValue,
+        lowStock: lowStock,
+        expiringSoon: expiringSoon
+    };
+}
